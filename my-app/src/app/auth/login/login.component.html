@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="assets/images/log.png" height="150px" width="150px" />
+        </div>
+        <div class="col-md-6">
+            <form #frmLogin="ngForm" novalidate (ngSubmit)="login(frmLogin)">
+                <div class="form-group">
+                    <label for="username">Nombre Usuario</label>
+                    <input type="text" class="form-control" placeholder="Nombre usuario" name="nombreUsuario"
+                        #nomUsuario="ngModel" [(ngModel)]="loginUsuario.nombreUsuario" 
+                        [ngClass]="{'is-invalid': nomUsuario.touched && nomUsuario.invalid}" required>
+                    <span class="invalid-feedback">
+                        El nombre de usuario es requerido
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="pass" #password="ngModel"
+                        [(ngModel)]="loginUsuario.password" 
+                        [ngClass]="{'is-invalid': password.touched && password.invalid}" required minlength="3">
+                    <span class="invalid-feedback">
+                        <span *ngIf="password.errors?.required"> La contraseña es requerida
+                        </span>
+                        <span *ngIf="password.errors?.minlength">
+                            La contraseña debe tener al menos 3 caractéres </span>
+                    </span>
+                </div>
+                <button [disabled]="frmLogin.invalid" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div style="margin: 30px;">
+    <div class="form-group row">
+        <label for="cantidadClientes" class="col-sm-1 col-form-label"> Cantidad Clientes:
+        </label>
+        <div class="col-sm-1">
+            <input type="number" #numCliente class="form-control" id="cantidadClientes">
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-info" (click)="consultarClientes(numCliente.value)">Buscar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let regCliente of clientes">
+            <div class="card" style="width: 20rem;">
+                <img [src]="regCliente.foto" class="card-img-top" alt="regCliente.nombre">
+                <div class="card-body">
+                    <h5 class="card-title">{{regCliente.nombre}} {{regCliente.apellido}}</h5> <span class="card-text">
+                        <h4>Detalle Dirección</h4>
+                        <ul>
+                            <li>
+                                <strong>Calle:</strong> {{regCliente.detalleDireccion.calle}}
+                            </li>
+                            <li>
+                                <strong>Ciudad:</strong> {{regCliente.detalleDireccion.ciudad}}
+                            </li>
+                            <li>
+                                <strong>Pais:</strong> {{regCliente.detalleDireccion.pais}}
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

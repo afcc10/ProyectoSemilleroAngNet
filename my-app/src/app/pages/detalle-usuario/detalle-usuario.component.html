@@ -1,0 +1,11 @@
+<div style="margin: 30px;">
+    <div class="alert alert-primary" role="alert" *ngIf="usuarioSeleccionado">
+        {{usuarioSeleccionado?.descripcion}} 
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="!usuarioSeleccionado"> 
+        Sin información
+    </div>
+    <div>
+        <a class="btn btn-primary" [routerLink]="['/inicio/usuarios']"> Regresar</a>
+    </div>
+</div>

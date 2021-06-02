@@ -1,0 +1,53 @@
+<div class="container">
+    <span style="text-align: center;">
+        <h3>Insertar los clientes</h3>
+    </span>
+    <form [formGroup]="frmCustomer" (ngSubmit)="guardarCustomer()">
+        <div class="form-group">
+            <label for="nombre">ID</label>
+            <input type="text" class="form-control" placeholder="Customer ID" formControlName="customerID"
+                [ngClass]="{'is-invalid': frmCustomer.get('customerID')?.touched && 
+                                          frmCustomer.get('customerID')?.invalid}">
+            <span class="invalid-feedback">
+                <span *ngIf="frmCustomer.get('customerID')?.errors?.required">
+                    El id del cliente es obligatorio </span>
+                <span *ngIf="frmCustomer.get('customerID')?.errors?.maxLength">
+                    El ID debe contener mínimo 5 caracteres
+                </span> 
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre compañia</label>
+            <input type="text" class="form-control" placeholder="Nombre compañia" formControlName="companyName">
+        </div>
+        <div class="form-group">
+            <label for="direccion">Nombre contacto</label>
+            <input type="text" class="form-control" placeholder="Nombre contacto" formControlName="contactName">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="telefono">Titulo contacto </label>
+                <input type="text" class="form-control" placeholder="Titulo contacto" formControlName="contactTitle">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="correo">Direccion</label>
+                <input type="text" class="form-control" placeholder="Direccion" formControlName="Address">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" class="form-control" placeholder="Ciudad" formControlName="city">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ciudad">Region</label>
+                <input type="text" class="form-control" placeholder="Region" formControlName="region">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>            
+        </div>
+    </form>
+</div>

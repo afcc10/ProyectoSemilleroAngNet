@@ -1,0 +1,26 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre Compañia</th>
+        <th scope="col">Nombre Contacto</th>
+        <th scope="col">Titulo contacto</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Region</th> 
+        </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let customers of clienteService.list"> 
+        <tr>
+            <td>{{customers.CustomerID}}</td> 
+            <td>{{customers.CompanyName}}</td> 
+            <td>{{customers.ContactName}}</td> 
+            <td>{{customers.ContactTitle}}</td>
+            <td>{{customers.Address}}</td> 
+            <td>{{customers.City}}</td> 
+            <td>{{customers.Region}}</td>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>
